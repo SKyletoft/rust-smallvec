@@ -22,6 +22,8 @@ may_dangle = []
 drain_filter = []
 drain_keep_rest = ["drain_filter"]
 impl_bincode = ["bincode", "unty"]
+deref_pure_trait = []
+deref_patterns = ["deref_pure_trait"]
 
 # UNSTABLE FEATURES (requires Rust nightly)
 # Enable to use the #[debugger_visualizer] attribute.

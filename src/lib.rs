@@ -94,6 +94,7 @@
 #![cfg_attr(feature = "specialization", allow(incomplete_features))]
 #![cfg_attr(feature = "specialization", feature(specialization))]
 #![cfg_attr(feature = "may_dangle", feature(dropck_eyepatch))]
+#![cfg_attr(feature = "deref_pure_trait", feature(deref_pure_trait))]
 #![cfg_attr(
     feature = "debugger_visualizer",
     feature(debugger_visualizer),
@@ -1884,6 +1885,9 @@ impl<A: Array> ops::DerefMut for SmallVec<A> {
         }
     }
 }
+
+#[cfg(feature = "deref_pure_trait")]
+unsafe impl<A: Array> ops::DerefPure for SmallVec<A> {}
 
 impl<A: Array> AsRef<[A::Item]> for SmallVec<A> {
     #[inline]
